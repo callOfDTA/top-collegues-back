@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,15 +30,23 @@ public class CollegueCtrl {
 	}
 
 	@RequestMapping(value = "{pseudo}", method = RequestMethod.PATCH, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Collegue updateScore(@RequestBody Map<String, Avis> updates, @PathVariable("pseudo") String pseudo) {
+	public ResponseEntity<?> updateScore(@RequestBody Map<String, Avis> updates,
+			@PathVariable("pseudo") String pseudo) {
 		Collegue collegue = collegueRepo.findByPseudo(pseudo);
-		if (collegue != null) {
-			if (updates.get("action") == Avis.AIMER)
-				collegue.setScore(collegue.getScore() + 10);
-			else if (updates.get("action") == Avis.DETESTER)
-				collegue.setScore(collegue.getScore() - 5);
-			collegueRepo.save(collegue);
+		if (collegue == null) {
+			return ResponseEntity.notFound().build();
 		}
-		return collegue;
+		if (!updates.containsKey("action"))
+			return ResponseEntity.badRequest().build();
+
+		if (updates.get("action") == Avis.AIMER)
+			collegue.setScore(collegue.getScore() + 10);
+		else if (updates.get("action") == Avis.DETESTER)
+			collegue.setScore(collegue.getScore() - 5);
+		else
+			return ResponseEntity.badRequest().build();
+		collegueRepo.save(collegue);
+
+		return ResponseEntity.ok(collegue);
 	}
 }
