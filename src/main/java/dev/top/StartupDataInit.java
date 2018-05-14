@@ -28,12 +28,14 @@ public class StartupDataInit {
 			this.versionRepo.save(new Version("v3"));
 			this.versionRepo.save(new Version("v4"));
 		}
-		this.collegueRepo.save(new Collegue("Rod",
-				"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
-				100));
-		this.collegueRepo.save(new Collegue("Alice",
-				"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
-				800));
+		if (this.collegueRepo.count() <= 0) {
+			this.collegueRepo.save(new Collegue("Rod",
+					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
+					100));
+			this.collegueRepo.save(new Collegue("Alice",
+					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
+					800));
+		}
 
 	}
 }
