@@ -1,10 +1,11 @@
 package dev.top.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.top.entities.Action;
 import dev.top.entities.Avis;
 import dev.top.entities.Collegue;
 import dev.top.repos.CollegueRepository;
@@ -21,6 +23,7 @@ import dev.top.repos.CollegueRepository;
  * The Class CollegueCtrl.
  */
 @RestController()
+@CrossOrigin
 @RequestMapping("/collegues")
 public class CollegueCtrl {
 
@@ -48,16 +51,19 @@ public class CollegueCtrl {
 	 * @return the collegue
 	 */
 	@RequestMapping(value = "{pseudo}", method = RequestMethod.PATCH, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Collegue partialUpdateScore(@RequestBody Map<String, Avis> updates, @PathVariable("pseudo") String pseudo) {
+	public ResponseEntity<?> partialUpdateScore(@RequestBody Action action, @PathVariable("pseudo") String pseudo) {
 
 		Collegue collegueUp = collegueRepo.findByPseudo(pseudo);
 
-		if (updates.get("action").equals(Avis.AIMER))
+		if (action.getAction().equals(Avis.AIMER)) {
 			collegueUp.setScore(collegueUp.getScore() + 10);
-		else if (updates.get("action").equals(Avis.DETESTER))
+
+		} else if (action.getAction().equals(Avis.DETESTER)) {
 			collegueUp.setScore(collegueUp.getScore() - 5);
 
+		}
+
 		collegueRepo.save(collegueUp);
-		return collegueUp;
+		return ResponseEntity.ok(collegueUp);
 	}
 }
