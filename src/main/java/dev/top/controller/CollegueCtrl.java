@@ -31,12 +31,13 @@ public class CollegueCtrl {
 	@RequestMapping(value = "{pseudo}", method = RequestMethod.PATCH, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Collegue updateScore(@RequestBody Map<String, Avis> updates, @PathVariable("pseudo") String pseudo) {
 		Collegue collegue = collegueRepo.findByPseudo(pseudo);
-
-		if (updates.get("action") == Avis.AIMER)
-			collegue.setScore(collegue.getScore() + 10);
-		else if (updates.get("action") == Avis.DETESTER)
-			collegue.setScore(collegue.getScore() - 5);
-		collegueRepo.save(collegue);
+		if (collegue != null) {
+			if (updates.get("action") == Avis.AIMER)
+				collegue.setScore(collegue.getScore() + 10);
+			else if (updates.get("action") == Avis.DETESTER)
+				collegue.setScore(collegue.getScore() - 5);
+			collegueRepo.save(collegue);
+		}
 		return collegue;
 	}
 }
