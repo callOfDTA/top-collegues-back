@@ -1,27 +1,28 @@
 package dev.top;
 
-import dev.top.entities.Version;
-import dev.top.repos.VersionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import dev.top.entities.Collegue;
+import dev.top.repos.CollegueRepository;
+
 @Component
 public class StartupDataInit {
 
-    @Autowired
-    VersionRepo versionRepo;
+	@Autowired
+	CollegueRepository collegueRepo;
 
-    @EventListener(ContextRefreshedEvent.class)
-    public void init() {
+	@EventListener(ContextRefreshedEvent.class)
+	public void init() {
 
-        if(this.versionRepo.count() <= 0) {
-            this.versionRepo.save(new Version("v1"));
-            this.versionRepo.save(new Version("v2"));
-            this.versionRepo.save(new Version("v3"));
-            this.versionRepo.save(new Version("v4"));
-        }
+		if (this.collegueRepo.count() <= 0) {
+			this.collegueRepo.save(new Collegue("", "Cyril", 100));
+			this.collegueRepo.save(new Collegue("", "Mehdi", -100));
+			this.collegueRepo.save(new Collegue("", "Maxime", 500));
+			this.collegueRepo.save(new Collegue("", "Alexis", -500));
+		}
 
-    }
+	}
 }
