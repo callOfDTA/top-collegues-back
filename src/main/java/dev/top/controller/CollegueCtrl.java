@@ -41,6 +41,14 @@ public class CollegueCtrl {
 		return this.collegueRepo.findAll();
 	}
 
+	@RequestMapping(value = "{pseudo}", method = RequestMethod.GET)
+	public ResponseEntity<?> getCollegueByPseudo(@PathVariable("pseudo") String pseudo) {
+
+		Collegue collegueUp = collegueRepo.findByPseudo(pseudo);
+
+		return ResponseEntity.ok(collegueUp);
+	}
+
 	/**
 	 * Partial update score.
 	 *

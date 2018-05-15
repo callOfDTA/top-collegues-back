@@ -21,8 +21,8 @@ public class Collegue {
 	private int id;
 
 	/** The url photo. */
-	@Column(name = "url_photo")
-	private String urlPhoto;
+	@Column(name = "photo")
+	private String photo;
 
 	/** The pseudo. */
 	@Column(name = "pseudo")
@@ -31,6 +31,18 @@ public class Collegue {
 	/** The score. */
 	@Column(name = "score")
 	private int score;
+
+	@Column(name = "nom")
+	private String nom;
+
+	@Column(name = "prenom")
+	private String prenom;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "adresse")
+	private String adresse;
 
 	/**
 	 * Instantiates a new collegue.
@@ -43,9 +55,30 @@ public class Collegue {
 	 *            the score
 	 */
 	public Collegue(String urlPhoto, String pseudo, int score) {
-		this.urlPhoto = urlPhoto;
+		this.photo = urlPhoto;
 		this.pseudo = pseudo;
 		this.score = score;
+	}
+
+	/**
+	 * @param urlPhoto
+	 * @param pseudo
+	 * @param score
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param adresse
+	 */
+	public Collegue(String urlPhoto, String pseudo, int score, String nom, String prenom, String email,
+			String adresse) {
+		super();
+		this.photo = urlPhoto;
+		this.pseudo = pseudo.toLowerCase();
+		this.score = score;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.adresse = adresse;
 	}
 
 	/**
@@ -56,22 +89,18 @@ public class Collegue {
 	}
 
 	/**
-	 * Gets the url photo.
-	 *
 	 * @return the photo
 	 */
-	public String getUrlPhoto() {
-		return urlPhoto;
+	public String getPhoto() {
+		return photo;
 	}
 
 	/**
-	 * Sets the url photo.
-	 *
-	 * @param urlPhoto
-	 *            the new url photo
+	 * @param photo
+	 *            the photo to set
 	 */
-	public void setUrlPhoto(String urlPhoto) {
-		this.urlPhoto = urlPhoto;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	/**
@@ -110,6 +139,66 @@ public class Collegue {
 	 */
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	/**
+	 * @return the nom
+	 */
+	public String getNom() {
+		return nom;
+	}
+
+	/**
+	 * @param nom
+	 *            the nom to set
+	 */
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	/**
+	 * @return the prenom
+	 */
+	public String getPrenom() {
+		return prenom;
+	}
+
+	/**
+	 * @param prenom
+	 *            the prenom to set
+	 */
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the adresse
+	 */
+	public String getAdresse() {
+		return adresse;
+	}
+
+	/**
+	 * @param adresse
+	 *            the adresse to set
+	 */
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 
 }
