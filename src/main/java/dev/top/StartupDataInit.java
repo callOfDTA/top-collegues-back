@@ -31,10 +31,10 @@ public class StartupDataInit {
 		if (this.collegueRepo.count() <= 0) {
 			this.collegueRepo.save(new Collegue("Rod",
 					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
-					100));
+					100, "Doudou", "Robert", "robert.doudou@toto.net", "Impasse des Lilas"));
 			this.collegueRepo.save(new Collegue("Alice",
 					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
-					800));
+					800, "Cepage", "Aline", "alice.cepage@titi.org", "Avenue des Hortensias"));
 		}
 
 	}

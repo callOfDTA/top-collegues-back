@@ -31,6 +31,16 @@ public class CollegueCtrl {
 		return this.collegueRepo.findAll();
 	}
 
+	@RequestMapping(value = "{pseudo}", method = RequestMethod.GET)
+	public ResponseEntity<?> getCollegueByPseudo(@PathVariable("pseudo") String pseudo) {
+
+		Collegue collegue = collegueRepo.findByPseudo(pseudo);
+		if (collegue == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(collegue);
+	}
+
 	@RequestMapping(value = "{pseudo}", method = RequestMethod.PATCH, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateScore(@RequestBody ActionVM actionVM, @PathVariable("pseudo") String pseudo) {
 		Collegue collegue = collegueRepo.findByPseudo(pseudo);
