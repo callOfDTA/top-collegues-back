@@ -30,13 +30,16 @@ public class StartupDataInit {
 		}
 
 		if (this.collegueRepo.count() <= 0) {
-			this.collegueRepo.save(
-					new Collegue("Alexis", "http://www.vetopedia.fr/wp-content/uploads/2017/06/chat_surpris.jpg", 500));
+			this.collegueRepo.save(new Collegue("Alexis",
+					"https://vignette.wikia.nocookie.net/finalfantasy/images/e/e6/DoC_-_Cait_Sith.png/revision/latest?cb=20120303120336",
+					700));
 			this.collegueRepo.save(new Collegue("Maxime",
-					"https://static.wamiz.fr/images/animaux/chiens/large/berger-blanc-suisse.jpg", 850));
-			this.collegueRepo.save(new Collegue("Cyril",
-					"https://lolstatic-a.akamaihd.net/frontpage/apps/prod/LolGameInfo-Harbinger/fr_FR/8588e206d560a23f4d6dd0faab1663e13e84e21d/assets/assets/images/gi-landing-top.jpg",
-					-150));
+					"https://ds1.static.rtbf.be/jeunesse/heroes/images/banner/65a376f5ad1c0c845162.png", 200));
+			this.collegueRepo.save(
+					new Collegue("Mehdi", "http://nerdemia.com/wp-content/uploads/2017/02/ff8-squall-close.jpg", 600));
+			this.collegueRepo.save(
+					new Collegue("Clément", "https://cdn.ndtv.com/tech/images/gadgets/pikachu_hi_pokemon.jpg", -100));
+
 		}
 
 	}
