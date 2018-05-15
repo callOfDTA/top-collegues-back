@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import dev.top.entities.Collegue;
 import dev.top.repos.CollegueRepo;
 
 @RestController()
+@CrossOrigin
 @RequestMapping("/collegues")
 public class CollegueController {
 	@Autowired
@@ -38,5 +40,10 @@ public class CollegueController {
 		}
 		collRepo.save(collPseudo);
 		return collPseudo;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/{pseudo}")
+	public Collegue getCollegueById(@PathVariable String pseudo) {
+		return this.collRepo.findByPseudo(pseudo);
 	}
 }
