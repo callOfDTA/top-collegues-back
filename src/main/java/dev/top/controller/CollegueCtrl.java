@@ -38,4 +38,9 @@ public class CollegueCtrl {
 		return this.collegueRepo.findByPseudo(pseudo);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, path = "/{pseudo}")
+	public Collegue collegueScore(@PathVariable String pseudo) {
+		return this.collegueRepo.findByPseudo(pseudo);
+	}
+
 }
