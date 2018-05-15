@@ -18,13 +18,26 @@ public class Collegue {
 
 	private int score;
 
+	private String nom;
+
+	private String prenom;
+
+	private String adresse;
+
+	private String email;
+
 	public Collegue() {
 	}
 
-	public Collegue(String pseudo, String photo, int score) {
-		this.pseudo = pseudo;
+	public Collegue(String pseudo, String photo, int score, String nom, String prenom, String adresse) {
+		super();
 		this.photo = photo;
+		this.pseudo = pseudo;
 		this.score = score;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.email = prenom + "." + nom + "@gmail.com";
 	}
 
 	public Integer getId() {
@@ -35,27 +48,60 @@ public class Collegue {
 		this.id = id;
 	}
 
-	public String getphoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setphoto(String photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
-	public String getpseudo() {
+	public String getPseudo() {
 		return pseudo;
 	}
 
-	public void setpseudo(String pseudo) {
+	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
 
-	public int getscore() {
+	public int getScore() {
 		return score;
 	}
 
-	public void setscore(int score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 }

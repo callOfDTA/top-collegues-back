@@ -30,13 +30,15 @@ public class StartupDataInit {
 		}
 
 		if (this.collegueRepo.count() <= 0) {
-			this.collegueRepo.save(
-					new Collegue("Alexis", "http://www.vetopedia.fr/wp-content/uploads/2017/06/chat_surpris.jpg", 500));
+			this.collegueRepo
+					.save(new Collegue("Alexis", "http://www.vetopedia.fr/wp-content/uploads/2017/06/chat_surpris.jpg",
+							500, "Vernay", "Alexis", "grenoble"));
 			this.collegueRepo.save(new Collegue("Maxime",
-					"https://static.wamiz.fr/images/animaux/chiens/large/berger-blanc-suisse.jpg", 850));
+					"https://static.wamiz.fr/images/animaux/chiens/large/berger-blanc-suisse.jpg", 850, "DANIEL",
+					"Maxime", "NANTES"));
 			this.collegueRepo.save(new Collegue("Cyril",
 					"https://lolstatic-a.akamaihd.net/frontpage/apps/prod/LolGameInfo-Harbinger/fr_FR/8588e206d560a23f4d6dd0faab1663e13e84e21d/assets/assets/images/gi-landing-top.jpg",
-					-150));
+					-150, "QUERRE", "Cyril", "RENNES"));
 		}
 
 	}

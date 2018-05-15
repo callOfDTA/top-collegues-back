@@ -11,11 +11,11 @@ public class ActionService {
 
 	public Collegue modifScore(Collegue collegue, ActionIhm action) {
 		if (action.getAction().equals(ActionEnum.AIMER)) {
-			collegue.setscore(collegue.getscore() + 10);
+			collegue.setScore(collegue.getScore() + 10);
 		} else if (action.getAction().equals(ActionEnum.DETESTER)) {
-			collegue.setscore(collegue.getscore() - 5);
+			collegue.setScore(collegue.getScore() - 5);
 		} else {
-			collegue.setscore(collegue.getscore());
+			collegue.setScore(collegue.getScore());
 		}
 		return collegue;
 	}
