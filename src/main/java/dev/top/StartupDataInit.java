@@ -35,6 +35,10 @@ public class StartupDataInit {
 			this.collegueRepo.save(new Collegue("Alice",
 					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
 					800, "Cepage", "Aline", "alice.cepage@titi.org", "Avenue des Hortensias"));
+			this.collegueRepo.save(new Collegue("rolice",
+					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
+					800, "Lice", "Romain", "romain.lice@titi.org", "rue des paquerettes"));
+
 		}
 
 	}
