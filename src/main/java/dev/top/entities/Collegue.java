@@ -13,6 +13,9 @@ public class Collegue {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(name = "matricule", nullable = false, unique = true)
+	private String matricule;
+
 	@Column(name = "pseudo", nullable = false, unique = true)
 	private String pseudo;
 
@@ -43,8 +46,9 @@ public class Collegue {
 	 * @param email
 	 * @param adresse
 	 */
-	public Collegue(String pseudo, String imageUrl, int score, String nom, String prenom, String email,
-			String adresse) {
+	public Collegue(String matricule, String pseudo, String imageUrl, int score, String nom, String prenom,
+			String email, String adresse) {
+		this.matricule = matricule;
 		this.pseudo = pseudo.toLowerCase();
 		this.photo = imageUrl;
 		this.score = score;
@@ -161,6 +165,32 @@ public class Collegue {
 	 */
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Collegue [pseudo=" + pseudo + ", photo=" + photo + ", score=" + score + ", nom=" + nom + ", prenom="
+				+ prenom + ", email=" + email + ", Adresse=" + Adresse + "]";
+	}
+
+	/**
+	 * @return the matricule
+	 */
+	public String getMatricule() {
+		return matricule;
+	}
+
+	/**
+	 * @param matricule
+	 *            the matricule to set
+	 */
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 
 }

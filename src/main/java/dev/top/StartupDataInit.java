@@ -29,13 +29,13 @@ public class StartupDataInit {
 			this.versionRepo.save(new Version("v4"));
 		}
 		if (this.collegueRepo.count() <= 0) {
-			this.collegueRepo.save(new Collegue("Rod",
+			this.collegueRepo.save(new Collegue("1", "Rod",
 					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
 					100, "Doudou", "Robert", "robert.doudou@toto.net", "Impasse des Lilas"));
-			this.collegueRepo.save(new Collegue("Alice",
+			this.collegueRepo.save(new Collegue("2", "Alice",
 					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
 					800, "Cepage", "Aline", "alice.cepage@titi.org", "Avenue des Hortensias"));
-			this.collegueRepo.save(new Collegue("rolice",
+			this.collegueRepo.save(new Collegue("3", "rolice",
 					"https://images.pexels.com/photos/265036/pexels-photo-265036.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
 					800, "Lice", "Romain", "romain.lice@titi.org", "rue des paquerettes"));
 
