@@ -40,7 +40,7 @@ public class Collegue {
 		this.adresse = adresse;
 	}
 
-	public Collegue(String pseudo, String photo, int score, String nom, String prenom, String adresse,
+	public Collegue(String pseudo, String photo, int score, String nom, String prenom, String email, String adresse,
 			String matricule) {
 		this.photo = photo;
 		this.pseudo = pseudo;
