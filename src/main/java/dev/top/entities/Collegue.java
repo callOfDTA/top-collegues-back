@@ -19,8 +19,15 @@ public class Collegue {
 	private String prenom;
 	private String email;
 	private String adresse;
+	private String matricule;
 
 	public Collegue() {
+	}
+
+	public Collegue(String pseudo, String photo, String matricule) {
+		this.photo = photo;
+		this.pseudo = pseudo;
+		this.matricule = matricule;
 	}
 
 	public Collegue(String pseudo, String photo, int score, String nom, String prenom, String adresse) {
@@ -31,6 +38,18 @@ public class Collegue {
 		this.prenom = prenom;
 		this.email = prenom.toLowerCase() + "." + nom.toLowerCase() + "@gmail.com";
 		this.adresse = adresse;
+	}
+
+	public Collegue(String pseudo, String photo, int score, String nom, String prenom, String adresse,
+			String matricule) {
+		this.photo = photo;
+		this.pseudo = pseudo;
+		this.score = score;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = prenom.toLowerCase() + "." + nom.toLowerCase() + "@gmail.com";
+		this.adresse = adresse;
+		this.matricule = matricule;
 	}
 
 	public Integer getId() {
@@ -95,5 +114,13 @@ public class Collegue {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 }

@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.top.entities.ActionIhm;
 import dev.top.entities.Collegue;
+import dev.top.entities.CollegueIhm;
 import dev.top.repos.CollegueRepo;
 import dev.top.service.ActionService;
 
 @RestController()
 @CrossOrigin
-@RequestMapping("/Collegues")
+@RequestMapping("/collegues")
 public class CollegueCtrl {
 
 	@Autowired
@@ -33,7 +34,6 @@ public class CollegueCtrl {
 
 	@RequestMapping(method = RequestMethod.PATCH, path = "/{pseudo}")
 	public Collegue collegueScore(@PathVariable String pseudo, @RequestBody ActionIhm actionIhm) {
-
 		collegueRepo.save(as.modifScore(this.collegueRepo.findByPseudo(pseudo), actionIhm));
 		return this.collegueRepo.findByPseudo(pseudo);
 	}
@@ -43,4 +43,9 @@ public class CollegueCtrl {
 		return this.collegueRepo.findByPseudo(pseudo);
 	}
 
+	@RequestMapping(method = RequestMethod.POST, path = "/nouveau")
+	public void ajouterCollegue(@RequestBody CollegueIhm collegueIhm) {
+		this.collegueRepo
+				.save(new Collegue(collegueIhm.getPseudo(), collegueIhm.getUrlImage(), collegueIhm.getMatricule()));
+	}
 }
