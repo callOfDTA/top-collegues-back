@@ -26,6 +26,8 @@ public class Collegue {
 
 	private String email;
 
+	private String matricule;
+
 	public Collegue() {
 	}
 
@@ -38,6 +40,45 @@ public class Collegue {
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.email = prenom + "." + nom + "@gmail.com";
+		this.matricule = "M" + this.id;
+	}
+
+	public Collegue(String pseudo, String photo, int score, String nom, String prenom, String adresse,
+			String matricule) {
+		super();
+		this.photo = photo;
+		this.pseudo = pseudo;
+		this.score = score;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.email = prenom + "." + nom + "@gmail.com";
+		this.matricule = matricule;
+	}
+
+	public Collegue(String pseudo, String photo, String matricule) {
+		super();
+		this.photo = photo;
+		this.pseudo = pseudo;
+		this.score = 0;
+		this.nom = "";
+		this.prenom = "";
+		this.adresse = "";
+		this.email = prenom + "." + nom + "@gmail.com";
+		this.matricule = matricule;
+	}
+
+	public Collegue(String photo, String pseudo, int score, String nom, String prenom, String adresse, String email,
+			String matricule) {
+		super();
+		this.photo = photo;
+		this.pseudo = pseudo;
+		this.score = score;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.email = email;
+		this.matricule = matricule;
 	}
 
 	public Integer getId() {
@@ -102,6 +143,14 @@ public class Collegue {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 
 }
