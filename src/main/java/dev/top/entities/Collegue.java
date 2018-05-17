@@ -20,6 +20,9 @@ public class Collegue {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(name = "matricule")
+	private String matricule;
+
 	/** The url photo. */
 	@Column(name = "photo")
 	private String photo;
@@ -61,7 +64,8 @@ public class Collegue {
 	}
 
 	/**
-	 * @param urlPhoto
+	 * @param matricule
+	 * @param photo
 	 * @param pseudo
 	 * @param score
 	 * @param nom
@@ -69,11 +73,12 @@ public class Collegue {
 	 * @param email
 	 * @param adresse
 	 */
-	public Collegue(String urlPhoto, String pseudo, int score, String nom, String prenom, String email,
+	public Collegue(String matricule, String photo, String pseudo, int score, String nom, String prenom, String email,
 			String adresse) {
 		super();
-		this.photo = urlPhoto;
-		this.pseudo = pseudo.toLowerCase();
+		this.matricule = matricule;
+		this.photo = photo;
+		this.pseudo = pseudo;
 		this.score = score;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -199,6 +204,21 @@ public class Collegue {
 	 */
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	/**
+	 * @return the matricule
+	 */
+	public String getMatricule() {
+		return matricule;
+	}
+
+	/**
+	 * @param matricule
+	 *            the matricule to set
+	 */
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 
 }

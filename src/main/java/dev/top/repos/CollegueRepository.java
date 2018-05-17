@@ -18,4 +18,6 @@ public interface CollegueRepository extends JpaRepository<Collegue, Integer> {
 	 * @return the collegue
 	 */
 	Collegue findByPseudo(String pseudo);
+
+	Collegue findByMatricule(String matricule);
 }
